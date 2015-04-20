@@ -25,15 +25,14 @@ inputfile = FOREACH inputfile GENERATE *, STRSPLIT(latlong, ',', 2).$0 AS latitu
 inputfile = FOREACH inputfile GENERATE *, SUBSTRING(latitude, 1, (int)SIZE(latitude)), SUBSTRING(longitude, 0, (int)SIZE(latitude)-1);
 inputfile = FOREACH inputfile GENERATE *, ToDate(UnixToISO(timestamp * 1000),'yyyy-MM-dd\'T\'HH:mm:ss.SSSZ') as timestamp_dt;
 inputfile = FOREACH inputfile GENERATE *, GetMonth(timestamp_dt) AS month,GetYear(timestamp_dt) AS year ;
---DUMP inputfile;
 
 --Top ten URL’s clicked.
 
-/*urlgroup = GROUP inputfile BY long_url;
+urlgroup = GROUP inputfile BY long_url;
 urlcount = FOREACH urlgroup GENERATE group AS url, COUNT(inputfile) AS count; 
 urlsort = ORDER urlcount BY count DESC;
 top10url = LIMIT urlsort 10;*/
---DUMP top10url;
+DUMP top10url;
 
 
 --Top ten URL’s per month.
@@ -41,10 +40,8 @@ top10url = LIMIT urlsort 10;*/
 yearmonthurlgroup = GROUP inputfile BY (month,year,long_url);
 urlcount = FOREACH yearmonthurlgroup GENERATE FLATTEN(group) AS (month,year,long_url), COUNT(inputfile) AS count; 
 urlcount = ORDER urlcount BY year ASC, month ASC, count DESC;
-
-----
-grp = GROUP urlcount BY (year,month);
-result = FOREACH grp {
+yearmonthgrp = GROUP urlcount BY (year,month);
+result = FOREACH yearmonthgrp {
 	top10 = ORDER urlcount BY count DESC;
 	top10 = LIMIT urlcount 10;
 	GENERATE FLATTEN(top10);
@@ -53,13 +50,11 @@ result = FOREACH grp {
 DUMP result;
 
 
-
-
 --Top ten URL's per city.
 
-/*citygroup = GROUP inputfile BY geo_city_name;
+citygroup = GROUP inputfile BY geo_city_name;
 urlcount = FOREACH citygroup GENERATE group AS city, COUNT(inputfile) AS count; 
 urlsort = ORDER urlcount BY count DESC;
 top10url = LIMIT urlsort 10;
-DUMP top10url;*/
+DUMP top10url;
 
