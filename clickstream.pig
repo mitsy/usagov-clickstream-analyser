@@ -3,7 +3,7 @@ REGISTER 'elephant-bird-hadoop-compat-4.1.jar';
 
 DEFINE UnixToISO org.apache.pig.piggybank.evaluation.datetime.convert.UnixToISO();
 
-inputfile = LOAD '*gz' USING com.twitter.elephantbird.pig.load.JsonLoader() AS (mymap);
+inputfile = LOAD 'datasets/*gz' USING com.twitter.elephantbird.pig.load.JsonLoader() AS (mymap);
 inputfile = FILTER inputfile BY mymap#'t' IS NOT NULL;
 
 inputfile = FOREACH inputfile GENERATE mymap#'a' AS user_agent: chararray, 
