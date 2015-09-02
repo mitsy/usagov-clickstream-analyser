@@ -1,4 +1,4 @@
-# bigdata
+# usagov-clickstream-data-analysis
 Pig scripts
 
 Steps
