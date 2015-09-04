@@ -31,8 +31,8 @@ inputfile = FOREACH inputfile GENERATE *, GetMonth(timestamp_dt) AS month,GetYea
 urlgroup = GROUP inputfile BY long_url;
 urlcount = FOREACH urlgroup GENERATE group AS url, COUNT(inputfile) AS count; 
 urlsort = ORDER urlcount BY count DESC;
-top10url = LIMIT urlsort 10;*/
-DUMP top10url;
+top10url = LIMIT urlsort 10;
+STORE top10url INTO 'output/top10urls';
 
 
 --Top ten URL’s per month.
@@ -47,7 +47,7 @@ result = FOREACH yearmonthgrp {
 	GENERATE FLATTEN(top10);
 } 
 
-DUMP result;
+STORE result INTO 'output/top10permonth';
 
 
 --Top ten URL's per city.
@@ -56,5 +56,5 @@ citygroup = GROUP inputfile BY geo_city_name;
 urlcount = FOREACH citygroup GENERATE group AS city, COUNT(inputfile) AS count; 
 urlsort = ORDER urlcount BY count DESC;
 top10url = LIMIT urlsort 10;
-DUMP top10url;
+STORE top10url INTO 'output/top10percity';
 
