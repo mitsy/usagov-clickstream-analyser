@@ -37,7 +37,7 @@ def top10urls(sc,inputRDD,dataFile,urlout):
 
 
 top10urlRDD = top10urls(sc, inputRDD, "datasets/*.gz", "top10urls")
-#print str(top10urlRDD.take(10))
+print str(top10urlRDD.take(10))
 
 def top10urlspercity(sc,inputRDD,dataFile,urlout):
     
@@ -46,13 +46,10 @@ def top10urlspercity(sc,inputRDD,dataFile,urlout):
                          .map(lambda (a, b) : (b, a)) \
                          .sortByKey(ascending=False) \
                          .map(lambda (b, a) : (a, b))
-    
-
-
     return toptencities
 
 top10citiesRDD = top10urlspercity(sc, inputRDD, "datasets/*.gz", "top10cities")
-#print str(top10citiesRDD.take(10))
+print str(top10citiesRDD.take(10))
 
 
 def top10urlspermonth(sc,inputRDD,dataFile,urlout):
@@ -71,5 +68,4 @@ def top10urlspermonth(sc,inputRDD,dataFile,urlout):
     return urltime
 
 top10monthsRDD = top10urlspermonth(sc, inputRDD, "datasets/*.gz", "top10months")
-
 print str(top10monthsRDD.collect())
