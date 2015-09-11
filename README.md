@@ -4,16 +4,21 @@ a.	Top ten URLs clicked.
 b.	Top ten URLs per month.  
 c.	Top ten URLs per city.  
 
-Steps
------
-
-1. Input data to this program needs to be downloaded from the below link:
+Input data to this program needs to be downloaded from the below link:
 
   http://www.usa.gov/About/developer-resources/1usagov.shtml  
-  The data is also available in this repository in datasets folder.    
-2. Run clickstream.pig script to extract the below info:  
-a.	Top ten URLs clicked.  
-b.	Top ten URLs per month.  
-c.	Top ten URLs per city.
+  The data is also available in this repository in datasets folder. 
+
+Clone the project:
+```
+      git clone https://github.com/mitsy/usagov-clickstream-analyser.git
+```      
+  
+Steps to run the Pig script:
+------
+
+1.     
+2. 
+
 
 3. Run clickstream_spark.py program to extract the same info as above.
