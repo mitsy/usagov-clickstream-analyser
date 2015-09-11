@@ -14,6 +14,7 @@ Now clone the project:
       git clone https://github.com/mitsy/usagov-clickstream-analyser.git
 ```      
 With this, we are in ~/usagov-clickstream-analyser directory.
+To run the Pig script, we need to have Apache Pig installed on our machine and follow the below steps:
 
 1. Run the below command 
 ```
