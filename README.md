@@ -27,6 +27,6 @@ To run the Spark program, we need to have Apache Spark installed on our machine 
 ```
     pyspark clickstream_spark.py
 ```
-This will create a **sparkout** directory inside usagov-clickstream-analyser/ which will have **top10cities*, **top10months** and **top10urls** folders. Check the part files inside these folders.
+This will create a **sparkout** directory inside usagov-clickstream-analyser/ which will have **top10cities**, **top10months** and **top10urls** folders. Check the part files inside these folders.
 
 
