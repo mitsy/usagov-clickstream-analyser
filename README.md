@@ -23,7 +23,7 @@ To run the Pig script, we need to have Apache Pig installed on our machine and f
 ```
     pig -x local clickstream.pig
 ```
-This will create an **output** directory inside usagov-clickstream-analyser/ which will have top10percity, top10permonth and top10urls folders.
+This will create an **output** directory inside usagov-clickstream-analyser/ which will have **top10percity**, **top10permonth** and **top10urls** folders.
 
 2. 
 
