@@ -15,7 +15,6 @@ Now clone the project:
 ```      
 With this, we are in ~/usagov-clickstream-analyser directory.
 
-------
 1. Run the below command 
 ```
     pig -x local clickstream.pig
