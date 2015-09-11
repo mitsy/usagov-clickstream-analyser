@@ -11,7 +11,7 @@ Input data to this program needs to be downloaded from the below link:
 
 Now clone the project:
 ```
-      git clone https://github.com/mitsy/usagov-clickstream-analyser.git
+    git clone https://github.com/mitsy/usagov-clickstream-analyser.git
 ```      
 With this, we are in ~/usagov-clickstream-analyser directory.
 
