@@ -15,4 +15,5 @@ Steps
 a.	Top ten URLs clicked.  
 b.	Top ten URLs per month.  
 c.	Top ten URLs per city.
+
 3. Run clickstream_spark.py script to extract the same info as above.
